@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #1a1a2e;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+  
+  .header-links {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .home-icon {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #333;
+    transition: background-color 0.3s;
+  }
+  
+  .home-icon:hover {
+    background-color: #e94560;
+  }
+  
+  /* Recovery Odds Section */
+  .recovery-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .recovery-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-btn {
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dropdown-btn:hover {
+    background-color: #e94560;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 10px;
+  }
+  
+  .dropdown-content a {
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f4f4f4;
+  }
+  
+  /* Show Dropdown */
+  .recovery-dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Footer Section */
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .dropdown-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  
+    .dropdown-content a {
+      font-size: 14px;
+    }
+  }
+    /* Show the dropdown menu when the "show" class is added */
+.dropdown-content.show {
+    display: block;
+  }

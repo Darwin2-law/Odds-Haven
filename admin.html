@@ -1,0 +1,105 @@
+<?php
+session_start();
+
+// Check if the admin is logged in
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: login.html"); // Redirect to login page if not logged in
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Admin Panel (Visible only after login) -->
+    <div id="admin-panel">
+        <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
+        <a href="logout.php" id="logout-button">Logout</a>
+
+        <!-- Post Message to Notifications -->
+        <h3>Post a Message to Notifications</h3>
+        <form id="post-message-form" action="post_message.php" method="POST">
+            <textarea name="message" id="message" placeholder="Enter your message here" required></textarea>
+            <button type="submit">Post Message</button>
+        </form>
+
+        <!-- Notifications Management -->
+        <h3>Manage Notifications</h3>
+        <table id="notifications-table" border="1">
+            <thead>
+                <tr>
+                    <th>Message</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include 'db_connection.php';
+
+                // Fetch notifications
+                $sql = "SELECT * FROM notifications";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>{$row['message']}</td>
+                                <td><a href='delete_notification.php?id={$row['id']}'>Delete</a></td>
+                            </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='2'>No notifications found.</td></tr>";
+                }
+
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
+
+        <!-- Registered Users Table -->
+        <h3>Registered Users</h3>
+        <table id="users-table" border="1">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include 'db_connection.php';
+
+                // Fetch registered users
+                $sql = "SELECT first_name, last_name, email, password FROM users";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>{$row['first_name']}</td>
+                                <td>{$row['last_name']}</td>
+                                <td>{$row['email']}</td>
+                                <td>{$row['password']}</td>
+                            </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>No users found.</td></tr>";
+                }
+
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

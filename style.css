@@ -1,0 +1,220 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: yellowgreen;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  h1, p {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background-color: #1a1a2e;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar ul li {
+    margin: 0 15px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .navbar ul li a i {
+    margin-right: 8px;
+  }
+  
+  .navbar ul li a:hover {
+    background-color: #e94560;
+    color: #fff;
+  }
+  
+  /* Main Section */
+  main {
+    padding: 100px 20px; /* Add padding to compensate for fixed navbar */
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(39, 223, 164, 0.1);
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar ul li {
+      margin: 0 10px;
+    }
+  
+    .navbar ul li a {
+      font-size: 0.9rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+     p {
+      font-size: 1rem;
+    }
+  }
+  .sidebar {
+    width: 250px;
+    background-color: #1a1a2e;
+    color: white;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 30px;
+  }
+  
+  .sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-header h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-menu li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+  }
+  
+  .sidebar-menu li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+  }
+  
+  .sidebar-menu li a:hover {
+    background-color: #e94560;
+  }
+  
+  .sidebar-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar-icon i {
+    margin-right: 15px;
+  }
+  
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+    background-color: #f0f0f0;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+ /* Styling for the main content */
+main {
+  margin-top: 60px;  /* Adjust for fixed nav */
+}
+
+/* Moving and Color Changing Paragraph Styling */
+.moving-paragraph {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  animation: move-and-change-color 5s ease-in-out infinite;
+}
+
+/* Animation for Moving and Color Changing */
+@keyframes move-and-change-color {
+  0% {
+      transform: translateX(0);
+      color: #333;  /* Initial color */
+  }
+  25% {
+      transform: translateX(50px);
+      color: #ff5733;  /* Orange color */
+  }
+  50% {
+      transform: translateX(0);
+      color: #33c1ff;  /* Light blue color */
+  }
+  75% {
+      transform: translateX(-50px);
+      color: #ff33b2;  /* Pink color */
+  }
+  100% {
+      transform: translateX(0);
+      color: #333;  /* Back to initial color */
+  }
+}
+
+/* General Text Styling */
+p {
+  font-size: 1.2rem;
+  color: #333;
+}

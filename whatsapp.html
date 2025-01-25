@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join WhatsApp Group</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+        header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        main {
+            padding: 40px;
+            text-align: center;
+        }
+        .button {
+            padding: 15px 30px;
+            background-color: #25D366; /* WhatsApp green color */
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Home Icon -->
+    <header>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Join the Odds Haven WhatsApp Group</h1>
+        <p>Click the button below to join our WhatsApp group and stay updated!</p>
+
+        <!-- Button to Join WhatsApp Group -->
+        <button class="button" id="whatsappButton">
+            <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+        </button>
+    </main>
+
+    <script>
+        // JavaScript function to handle the WhatsApp group link redirection
+        document.getElementById('whatsappButton').addEventListener('click', function() {
+            const whatsappLink = "https://chat.whatsapp.com/HzLI6mXHxEV3vC0FPLfGBg"; // Replace with your actual WhatsApp group invite link
+            window.open(whatsappLink, '_blank');
+        });
+    </script>
+</body>
+</html>

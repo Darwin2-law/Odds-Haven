@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat with Us</title>
+  <link rel="stylesheet" href="chat.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Chat Header with Home Icon -->
+  <header class="header">
+    <div class="header-links">
+      <a href="index.html" class="home-icon"><i class="fas fa-home"></i> Home</a>
+    </div>
+    <h1>Chat with Us</h1>
+  </header>
+
+  <div class="chat-container">
+    <textarea id="chat-message" placeholder="Type your message..."></textarea>
+    <button id="send-message">Send Message</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Betting Platform</p>
+  </footer>
+
+  <script>
+    // Handle sending the message to WhatsApp
+    document.getElementById('send-message').addEventListener('click', function() {
+      const message = document.getElementById('chat-message').value.trim();
+      if (message) {
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappNumber = 'YOUR_WHATSAPP_NUMBER'; // Replace with your WhatsApp number (e.g., +1234567890)
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        // Open WhatsApp with the pre-filled message
+        window.open(whatsappUrl, '_blank');
+
+        // Optionally, clear the input after sending
+        document.getElementById('chat-message').value = '';
+      } else {
+        alert('Please type a message before sending.');
+      }
+    });
+  </script>
+</body>
+</html>

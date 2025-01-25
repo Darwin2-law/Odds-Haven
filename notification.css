@@ -1,0 +1,58 @@
+/* Notification Page Styles */
+.new-message-count {
+    font-size: 1.2rem;
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .notifications-container {
+    margin-top: 20px;
+  }
+  
+  #notifications-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #notifications-list li {
+    background-color: #f4f4f4;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  #notifications-list li.unviewed {
+    border-left: 5px solid red;
+  }
+  
+  #notifications-list li.viewed {
+    border-left: 5px solid green;
+  }
+  
+  .timestamp {
+    font-size: 0.9rem;
+    color: gray;
+    margin-top: 5px;
+  }
+  
+  .delete-btn {
+    background-color: #ff5c5c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 3px;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e04e4e;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 30px;
+  }
+   

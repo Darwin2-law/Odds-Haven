@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications</title>
+  <link rel="stylesheet" href="notification.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Notification Header with Home Icon -->
+  <header class="header">
+    <div class="header-links">
+      <a href="index.html" class="home-icon"><i class="fas fa-home"></i> Home</a>
+    </div>
+    <h1>Notifications</h1>
+    <div id="new-message-count" class="new-message-count">New Messages: 0</div>
+  </header>
+
+  <div class="notifications-container">
+    <h2>Recent Notifications</h2>
+    <ul id="notifications-list"></ul>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Betting Platform</p>
+  </footer>
+
+  <script>
+    // Load and Display Notifications with Date and Time
+    function loadNotifications() {
+      const notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+      const notificationsList = document.getElementById('notifications-list');
+      const newMessageCount = document.getElementById('new-message-count');
+      
+      notificationsList.innerHTML = ''; // Clear the list first
+      let newMessages = 0;
+
+      notifications.forEach((notification, index) => {
+        const li = document.createElement('li');
+        li.classList.add(notification.viewed ? 'viewed' : 'unviewed');
+        li.innerHTML = `
+          <p>${notification.message}</p>
+          <p class="timestamp">${new Date(notification.timestamp).toLocaleString()}</p>
+          <button class="delete-btn" data-index="${index}">Delete</button>
+        `;
+        notificationsList.appendChild(li);
+
+        if (!notification.viewed) newMessages++;
+      });
+
+      // Update the new message count
+      newMessageCount.textContent = `New Messages: ${newMessages}`;
+    }
+
+    // Delete Message
+    document.addEventListener('click', function(event) {
+      if (event.target.classList.contains('delete-btn')) {
+        const index = event.target.getAttribute('data-index');
+        const notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+        notifications.splice(index, 1); // Remove the message
+        localStorage.setItem('notifications', JSON.stringify(notifications));
+        loadNotifications(); // Reload notifications
+      }
+    });
+
+    // Mark messages as viewed when page is loaded
+    window.onload = function() {
+      const notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+      notifications.forEach(notification => notification.viewed = true);
+      localStorage.setItem('notifications', JSON.stringify(notifications)); // Save updated status
+      loadNotifications(); // Load all notifications
+    };
+  </script>
+</body>
+</html>
